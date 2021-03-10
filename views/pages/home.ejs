@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body  class="bg-gray-800 text-gray-100 px-8 py-12">
+    <%- include("../partials/header") -%>
+
+    <div class="container my-12 mx-auto px-4 md:px-12">
+      <div class="flex flex-wrap -mx-1 lg:-mx-4">
+        <div class="grid grid-cols-3 gap-4">
+          <% for (let i = 0; i < products.length; i++) { %>
+          <article class="overflow-hidden rounded-lg shadow-lg bg-gray-300">
+            <a href="#">
+              <img
+                alt="Placeholder"
+                class="block h-auto w-full"
+                src="<%= products[i].avatar %>"
+              />
+            </a>
+            <header
+              class="flex items-center justify-between leading-tight p-2 md:p-4"
+            >
+              <h1 class="text-lg">
+                <a
+                  class="no-underline hover:underline text-black text-3xl text-gray-900"
+                  href="#"
+                  ><%= products[i].title %></a
+                >
+              </h1>
+            </header>
+            <footer
+              class="flex items-center justify-between leading-none p-2 md:p-4"
+            >
+              <ul>
+                <li class="text-1xl mb-8 text-gray-900">Color: <%= products[i].color %></li>
+                <li class="text-1xl mb-8 text-gray-900">Size: <%= products[i].size %></li>
+                <li class="text-1xl mb-8 text-gray-900">Price: <%= products[i].price %></li>
+              </ul>
+              <a
+                id="<%= products[i].id %>"
+                href= 'http://localhost:5005/products/<%=products[i].id %> '
+                class="moreBtn p-2 my-2 bg-indigo-500 text-white rounded-md focus:outline-none focus:ring-2 ring-blue-300 ring-offset-2 mr-8 scale-95" id='<%= products[i].id %>' href='http://localhost:5005/:id'
+              >
+                More Info
+            </a>
+            </footer>
+          </article>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </body>
+</html>
+
+
+
